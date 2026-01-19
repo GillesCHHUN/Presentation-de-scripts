@@ -26,10 +26,8 @@ public class BulletDamage : MonoBehaviour
             // On récupère le point exact de l'impact
             ContactPoint contact = collision.contacts[0];
             
-            // On crée l'effet à la position du contact, orienté selon la normale (la face touchée)
             GameObject effect = Instantiate(hitParticlesPrefab, contact.point, Quaternion.LookRotation(contact.normal));
             
-            // On détruit l'effet automatiquement après 2 secondes pour ne pas polluer la hiérarchie
             Destroy(effect, 2f); 
         }
     }
